@@ -1,38 +1,100 @@
+/* src/App.css */
 .App {
+  text-align: center;
+  padding: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 10px;
+  width: 80%; /* Ensure the input field is responsive */
+  max-width: 400px; /* Limit max width for larger screens */
+}
+
+button {
+  padding: 8px;
+  cursor: pointer;
+}
+
+.task-item {
+  margin: 10px auto; /* Center the task items */
+  display: flex;
+  justify-content: space-between; /* Space between checkbox, text, and button */
+  align-items: center;
+  width: 90%; /* Flexible width for smaller screens */
+  max-width: 500px; /* Max width for larger screens */
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box; /* Ensure padding is included in width */
+}
+
+.task-item span {
+  flex-grow: 1; /* Allow text to take up remaining space */
+  text-align: left;
+  margin-right: 10px;
+  white-space: nowrap; /* Prevent wrapping of long text */
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.task-item input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.task-item button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  min-width: 70px; /* Uniform width for delete button */
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.task-item-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  width: 100%; /* Ensure the container takes up full width */
+}
+
+.message {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  background-color: #4caf50;
   color: white;
+  font-size: 16px;
+  border-radius: 5px;
+  opacity: 0;
+  animation: fadeInOut 2s forwards;
 }
 
-.App-link {
-  color: #61dafb;
+@keyframes fadeInOut {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Media Queries for Responsiveness */
+@media (min-width: 768px) {
+  .task-item {
+    width: 60%; /* Wider on tablet screens */
   }
-  to {
-    transform: rotate(360deg);
+}
+
+@media (min-width: 1024px) {
+  .task-item {
+    width: 50%; /* Wider on larger desktop screens */
+  }
+}
+
+@media (min-width: 1200px) {
+  .task-item {
+    width: 40%; /* Even wider on very large screens */
   }
 }
